@@ -4,7 +4,7 @@
 					<div class="connect">
 						<p class="heading">Connect With Us</p>
 						<ul class="unstyled">
-							<li><a href="https://twitter.com/#!/KWCManchester" target="_blank"><img src="<?php bloginfo('template_url') ?>/img/twitter.png" alt="Twitter" /></a></li>
+							<li><a href="https://twitter.com/KWCManchester" target="_blank"><img src="<?php bloginfo('template_url') ?>/img/twitter.png" alt="Twitter" /></a></li>
 							<li><a href="http://www.facebook.com/kingswaychurchmanchester" target="_blank"><img src="<?php bloginfo('template_url') ?>/img/facebook.png" alt="Facebook" /></a></li>
 						</ul>
 					</div><!-- END OF connect DIV -->
@@ -45,7 +45,6 @@
 			</div>
 			<div class="span2">
 				<a href="<?php bloginfo('url'); ?>">
-					<!--<img src="<?php bloginfo('template_url'); ?>/img/new-logo.png">-->
 					<?php 
 						$logoID = get_field('logo', 7);
 						$logoSRC = wp_get_attachment_image_src($logoID, 'full');

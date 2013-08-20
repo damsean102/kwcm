@@ -31,7 +31,7 @@ Template Name: Events Template
 
 			<h1><?php the_title(); ?></h1>
 
-			
+			<h2>Our Latest Events</h2>
 			<?php the_content(); ?>
 
 
@@ -45,12 +45,12 @@ Template Name: Events Template
 						'post_type'			=>	'events' )
 					);
 
-					foreach ($events as $event): 
+					foreach ($events as $post): setup_postdata($post); 
 						?>
 						<div class="event">
 							<?php
 
-							$eventImgID = get_field('event_image', $event->ID); 
+							$eventImgID = get_field('event_image'); 
 							$eventImgURL = wp_get_attachment_image_src( $eventImgID, 'full' );
 
 							echo "<hr class='orangeLine1'>";
@@ -60,13 +60,22 @@ Template Name: Events Template
 							endif;
 
 							?>
-							<h2 class="heading"><?php echo get_the_title($event->ID); ?></h2>
+							<h2 class="heading"><?php echo get_the_title(); ?></h2>
 							<?php
-								$eventContent = $event->post_content;
-								echo wpautop( $eventContent, $br = true );
+								the_content();
 							?>
-						</div>
-					<?php endforeach;
+
+
+
+							<p><strong>Help us promote this event</strong></p>
+							<ul>
+								<li>Share on Twitter</li>
+								<li>Share on FB</li>
+							</ul>
+						</div><!-- END event DIV -->
+					<?php 
+					endforeach;
+					wp_reset_postdata();
 				?>
 			</div><!-- END OF events DIV -->
 
