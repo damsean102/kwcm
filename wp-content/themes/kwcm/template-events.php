@@ -38,7 +38,7 @@ Template Name: Events Template
 			<div class="events">
 				<?php 
 					$events = get_posts(  array(
-						'numberposts'		=>	-1,
+						'numberposts'		=>	3,
 						'offset'			=>	0,
 						'orderby'			=>	'post_date',
 						'order'				=>	'DESC',
@@ -65,12 +65,17 @@ Template Name: Events Template
 								the_content();
 							?>
 
-
+							<?php 
+							$permalink_EN = urlencode(get_permalink());
+							$text = "Have a look at " . get_the_title() . " at @KWCManchester on 03/12/1984...";
+							$text_EN = urlencode($text);
+							$title_EN = urlencode(get_the_title());
+							?>
 
 							<p><strong>Help us promote this event</strong></p>
 							<ul>
-								<li>Share on Twitter</li>
-								<li>Share on FB</li>
+								<li><a href="https://twitter.com/intent/tweet?text=<?php echo $text_EN; ?>&url=<?php echo $permalink_EN; ?>" target="_blank">Share on Twitter</a></li>
+								<li><a href="http://www.facebook.com/sharer.php?u=<?php echo get_permalink(); ?>" target="_blank">Share on Facebook</a></li>
 							</ul>
 						</div><!-- END event DIV -->
 					<?php 
